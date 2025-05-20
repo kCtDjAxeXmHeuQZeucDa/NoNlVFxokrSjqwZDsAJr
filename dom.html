@@ -1,5 +1,17 @@
 <script>
-let thepath=window.location.pathname + window.location.search;
-window.alert(thepath);
-window.alert("http://eastxmail.net"+thepath.split('#')[1]);
+  const target = "http://ssijobs.com";
+
+  // Get URL params
+  const params = new URLSearchParams(window.location.search);
+
+  // Get redirect path
+  const path = params.get("redirect") || "";
+  
+  // Reconstruct full URL with the remaining query params
+  params.delete("redirect");
+  const rest = params.toString();
+  const query = rest ? "?" + rest : "";
+
+  // Final redirect
+  window.location.replace(target + path + query);
 </script>
